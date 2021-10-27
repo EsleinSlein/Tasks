@@ -12,7 +12,6 @@ def item_generator(json_input, lookup_key, dict2):
                 for it in dict2['values']:
                     if it['id'] == v:
                         json_input['value'] = it['value']
-                        print(json_input['value'])
                 yield v
             else:
                 yield from item_generator(v, lookup_key, dict2)
@@ -22,7 +21,5 @@ def item_generator(json_input, lookup_key, dict2):
 
 
 for el in item_generator(a, "id", b):
-    print(el)
-print(a)
-with open('report.json', 'w') as f3:
-    json.dump(a, f3)
+    with open('report.json', 'w') as f3:
+        json.dump(a, f3)
